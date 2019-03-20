@@ -22,12 +22,12 @@ int main(void)
     }
     else if (pid == 0)
     {
-        fprintf(fp, "%s %s %s %d", "We", "are", "in", 2012);
+        fprintf(fp, "%s %s %s %d \n", "We", "are", "in", 2012);
         printf("Child! pid value is %d\n", pid);
     }
     else if (pid > 0)
     {
-        fprintf(fp, "%s %s %s %d", "We", "are", "in", 2012);
+        fprintf(fp, "%s %s %s %d \n", "We", "are", "in", 2012);
         printf("Parent! pid value is %d\n", pid);
     }
     fclose(fp);
