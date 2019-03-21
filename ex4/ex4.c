@@ -20,9 +20,24 @@ int main(void)
     }
     else if (pid == 0)
     {
-        execlp("ls", "ls", NULL);
-        perror("exec");
         printf("Child! pid value is %d \n", pid);
+
+        // int execl(const char *path, const char *arg0, ... /*, (char *)0 */);
+        // int execv(const char *path, char *const argv[]);
+        // int execle(const char *path, const char *arg0, ... /*,
+        //        (char *)0, char *const envp[]*/);
+        // int execve(const char *path, char *const argv[], char *const envp[]);
+        // int execlp(const char *file, const char *arg0, ... /*, (char *)0 */);
+        // int execvp(const char *file, char *const argv[]);
+        //
+        // execlp("ls", "ls", NULL);
+        //
+        // char *argv[] = {"ls", "-1", 0};
+        // execv("/bin/ls", argv);
+        //
+        char *argv[] = {"/bin/ls", "-1", 0};
+        execvp(argv[0], argv);
+        perror("exec");
     }
     else if (pid > 0)
     {
